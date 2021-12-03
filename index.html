@@ -8,10 +8,19 @@
   <title>Home</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="./static/css/main-style.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 </head>
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<body data-spy="scroll"  data-target=".navbar" data-offset="100">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <a href="#" class="navbar-brand">
       <img src="./static/images/logo.jpg" alt="logo">
       <div class="logo-name-container">
@@ -25,13 +34,13 @@
           <a class="nav-link" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link" href="#about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Classes</a>
+          <a class="nav-link" href="#classes">Classes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Team</a>
+          <a class="nav-link" href="#" data-toggle="popover" title="Page not available" data-content="Sorry! Currently we're working on this page.">Team</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -47,10 +56,71 @@
     </div>
   </nav>
 
+    
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <div class="progress">
+      <div class="progress-bar" style="width:80%; background-color: rgb(123, 199, 243);" data-target="tooltip" title="80% seats are booked">80%</div>
+      <div class="progress-bar bg-success" style="width:20%"  data-target="tooltip" title="20% seats are left">20%</div>
+    </div>
+    Hurry up. only 20% seats are left!
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="contact-us-floating" data-toggle="tooltip" data-placement="left" title="Contact Us">
+    <a href="#" data-toggle="modal" data-target="#contact-us-modal">
+      <!-- <img src="https://img.icons8.com/ios/50/4a90e2/email-open.png" /> -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Modal -->
+  <div id="contact-us-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content p-3">
+        <div class="modal-header">
+          <h4 class="modal-title">Contact Us</h4>
+          <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+        <div class="modal-body">
+
+          <form >
+            <p>
+              Send your message in the form below and we will get back to you as early as possible.
+            </p>
+
+            <div class="form-group">
+              <label for="name">
+                Name:</label>
+              <input type="text" class="form-control" id="name" name="name" required maxlength="50">
+
+            </div>
+            <div class="form-group">
+              <label for="email">
+                Email:</label>
+              <input type="email" class="form-control" id="email" name="email" required maxlength="50">
+            </div>
+            <div class="form-group">
+              <label for="name">
+                Message:</label>
+              <textarea class="form-control" type="textarea" name="message" id="message" placeholder="Your Message Here"
+                maxlength="6000" rows="7"></textarea>
+            </div>
+            <button type="submit" class="btn btn-lg btn-block clr-blue" style="font-size: 20px; font-weight: 600;" id="btnContactUs">Contact Us →</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <section class="hero" id="hero-section">
     <div class="container hero-container">
       <h3 class="welcome-text">Welcome to <strong>Happy Moves</strong></h3>
-      <h1>Lorem ipsum, dolor sit amet</h1>
+      <h1 class="clr-blue">Why Walk, When you can <span style=" font-weight: bolder; font-size: 52px;">dance</span></h1>
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae cum corporis, necessitatibus harum
         doloribus a.
       </p>
@@ -58,21 +128,142 @@
     </div>
   </section>
 
-  <section class="about" id="about-section">
-    <div class="container about-container row">
-      
+  <section class="about-section" id="about">
+    <div class="container mx-auto about-container row justify-content-center">
+      <div class="about-us-text row justify-content-center">
+        <div class="col-lg-8 col-md-9 text-center mb-3">
+          <h2 class="clr-blue">About Us</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione itaque delectus nulla doloremque
+            quidem
+            cum!</p>
+        </div>
+      </div>
+      <div class="row mx-auto justify-content-center">
+        <div class="col-lg-6 col-12">
+          <img class="left-image" src="./static/images/classical_dance.png" alt="classical dance image">
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-0">
+          <div class="row">
+            <p style="margin-top: 90px">With a notion that ballerine activities are not just mere 3 times a week
+              routine, but rather a day-to-day
+              lifestyle, we have opened a first of our Happy Moves school in the city… When we were asking
+              ourselves,
+              whether we would be able to offer something different to what other Happy Moves school do offer, we
+              found
+              the
+              answer. It was – a skilled team of trainers!
+            </p>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+  <section class="classes-section" id="classes">
+    <div class="container mx-auto about-container row justify-content-center">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-9 text-center mb-3">
+          <h2 class="clr-blue">Our classes</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione itaque delectus nulla doloremque
+            quidem
+            cum!</p>
+        </div>
+      </div>
+      <div class="row mx-auto justify-content-center">
+        <div class="col-lg-6 col-12">
+          <h4 class="clr-blue">Dance Classes</h4>
+          <p>Definitely beginner friendly, and of great benefit to those may love dancing, but have never trained
+            in any
+            discipline.</p>
+          <div class="timing-wrapper">
+            <h4 class="clr-blue">Pick Your Time</h4>
+            <p>
+            <ul>
+              <li>Saturday-Sunday: 8:00am - 10:00am</li>
+              <li>Monday-Tuesday: 10:00am - 12:00pm</li>
+              <li>Wednesday-Friday: 3:00pm - 6:00pm</li>
+            </ul>
+            </p>
+          </div>
+          <div>
+            <h4 class="clr-blue">Dance Classes For Everyone</h4>
+            <p>Join our comunity, learn a variety of dance style.</p>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-12">
+          <div id="danceCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#danceCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#danceCarousel" data-slide-to="1"></li>
+              <li data-target="#danceCarousel" data-slide-to="2"></li>
+              <li data-target="#danceCarousel" data-slide-to="3"></li>
+              <li data-target="#danceCarousel" data-slide-to="4"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="./static/images/slider_hip_hop.jpg" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Hip Hop</h5>
+                  <p>Hip-hop dance is a unique and exciting style of street dance that is most commonly performed
+                    to
+                    hip-hop music</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="./static/images/slider_classical.jpg" alt="Second slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Classical &nbsp;<span class="badge badge-primary">New</span></h5>
+                  <p>Indian classical dance is an umbrella term for various performance arts rooted in musical
+                    theatre
+                    styles,</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="./static/images/slider_k-pop.jpg" alt="Third slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>K-pop</h5>
+                  <p>A faster tempo than most old-school lyrical hip hop songs</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="./static/images/slider_salsa.jpg" alt="Third slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Salsa</h5>
+                  <p>A latin dance and amalgamation of Cuban dances</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="./static/images/slider_ballet.jpg" alt="Third slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Ballet</h5>
+                  <p>Traditional art form that originated over 500 years ago in Italy. Though ballet dancers are
+                    trained
+                    to appear gentl</p>
+                </div>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#danceCarousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#danceCarousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    $(document).ready(function(){
+        $('[data-toggle="popover"]').popover();   
+    });
+    </script>
+  
 </body>
 
 </html>
